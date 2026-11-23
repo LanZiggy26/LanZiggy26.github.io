@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <!-- 墨兰：只用黑色，深浅由透明度决定；网页用它当遮罩，颜色随日间/夜间模式变化 -->
+  <defs>
+    <path id="p" d="M0,0 C6,-7 10,-19 4,-34 C1,-23 -5,-11 0,0 Z"/>
+    <path id="s" d="M0,0 C4,-5 6,-12 3,-20 C0,-13 -3,-6 0,0 Z"/>
+  </defs>
+  <g fill="#000">
+    <!-- 叶 -->
+    <path fill-opacity=".95" d="M126,498 C150,390 250,270 392,214 C262,282 168,392 134,498 Z"/>
+    <path fill-opacity=".85" d="M130,498 C150,400 210,300 300,252 C328,238 348,240 362,246 C340,243 312,252 282,272 C212,322 160,410 138,498 Z"/>
+    <path fill-opacity=".9"  d="M122,498 C110,380 80,250 36,148 C96,250 126,380 130,498 Z"/>
+    <path fill-opacity=".7"  d="M128,498 C128,380 150,260 178,118 C162,260 141,380 134,498 Z"/>
+    <path fill-opacity=".6"  d="M120,498 C85,450 40,430 4,452 C45,420 95,438 126,494 Z"/>
+    <path fill-opacity=".5"  d="M134,498 C180,440 270,410 352,430 C270,402 175,425 130,494 Z"/>
+    <path fill-opacity=".45" d="M124,498 C100,420 60,360 20,330 C68,356 108,416 130,496 Z"/>
+  </g>
+  <!-- 花茎 -->
+  <g fill="none" stroke="#000" stroke-linecap="round" stroke-opacity=".7">
+    <path stroke-width="2.4" d="M136,494 Q185,410 226,334"/>
+    <path stroke-width="2"   d="M126,494 Q100,430 86,366"/>
+    <path stroke-width="1.8" d="M140,494 Q215,450 268,404"/>
+  </g>
+  <!-- 花：淡墨瓣，浓墨点心 -->
+  <g fill="#000">
+    <g transform="translate(226,334)" fill-opacity=".7">
+      <use href="#p" transform="rotate(-78)"/><use href="#p" transform="rotate(-28)"/>
+      <use href="#p" transform="rotate(24)"/><use href="#s" transform="rotate(70)"/>
+      <use href="#s" transform="rotate(150) scale(.8)"/>
+      <circle cx="2" cy="-3" r="2.2" fill-opacity="1"/><circle cx="-3" cy="-1" r="1.6" fill-opacity="1"/>
+    </g>
+    <g transform="translate(86,366) rotate(-20)" fill-opacity=".65">
+      <use href="#p" transform="rotate(-70) scale(.9)"/><use href="#p" transform="rotate(-15) scale(.9)"/>
+      <use href="#p" transform="rotate(40) scale(.85)"/><use href="#s" transform="rotate(160) scale(.75)"/>
+      <circle cx="1" cy="-3" r="2" fill-opacity="1"/><circle cx="-3" cy="-1" r="1.4" fill-opacity="1"/>
+    </g>
+    <g transform="translate(268,404) rotate(25)" fill-opacity=".6">
+      <use href="#s" transform="rotate(-50)"/><use href="#s" transform="rotate(10)"/>
+      <use href="#s" transform="rotate(60) scale(.8)"/>
+      <circle cx="0" cy="-2" r="1.6" fill-opacity="1"/>
+    </g>
+    <!-- 花苞 -->
+    <ellipse cx="196" cy="384" rx="3.2" ry="7" transform="rotate(35 196 384)" fill-opacity=".5"/>
+    <ellipse cx="96" cy="410" rx="2.8" ry="6" transform="rotate(-20 96 410)" fill-opacity=".45"/>
+  </g>
+</svg>

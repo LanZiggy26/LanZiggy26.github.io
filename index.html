@@ -52,15 +52,17 @@ a.card:hover,a.card:focus-visible{transform:translateY(-2px);border-color:var(--
 footer{text-align:center;color:var(--dim);font-size:.82rem;margin-top:48px;font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif}
 @media (max-width:480px){h1{font-size:1.8rem}.wrap{padding-top:40px}}
 </style>
+<link rel="stylesheet" href="deco.css">
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>抱朴书房</h1>
+    <h1>抱朴书房<span class="yin" aria-hidden="true">幽兰</span></h1>
     <div class="seal">读经典 · 学中医 · 一键点入</div>
+    <span class="huiwen" aria-hidden="true"></span>
   </header>
   <main id="shelf"></main>
-  <footer>手机上想像 App 一样打开：iPhone 用 Safari「分享 → 添加到主屏幕」，安卓用 Chrome「添加到主屏幕」。</footer>
+  <footer><span class="huiwen" aria-hidden="true"></span>手机上想像 App 一样打开：iPhone 用 Safari「分享 → 添加到主屏幕」，安卓用 Chrome「添加到主屏幕」。</footer>
 </div>
 <script src="items.js"></script>
 <script>

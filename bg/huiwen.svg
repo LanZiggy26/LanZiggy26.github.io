@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20">
+  <!-- 回纹：一格一个回旋，横向重复成带 -->
+  <path fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="square"
+        d="M0,1 H20 M0,19 H20 M17,19 V4 H4 V15 H13 V8 H8"/>
+</svg>
