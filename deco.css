@@ -1,7 +1,7 @@
 /* 书房装饰：宣纸底、墨兰、回纹、印章。两个页面共用。 */
-:root{ --ink-lan:#2b2622; --lan-op:.2; --hui:#a3342b; }
+:root{ --ink-lan:#2b2622; --lan-op:.32; --hui:#a3342b; }
 @media (prefers-color-scheme: dark){
-  :root{ --ink-lan:#e8dfcf; --lan-op:.11; --hui:#e07a6c; }
+  :root{ --ink-lan:#e8dfcf; --lan-op:.18; --hui:#e07a6c; }
 }
 
 /* 宣纸：细微纤维纹理 + 一层暖光 */
@@ -44,7 +44,7 @@ footer .huiwen{ margin:0 auto 14px; width:min(160px,40%); opacity:.3; }
   display:inline-block; writing-mode:vertical-rl; vertical-align:middle;
   font-size:.42em; line-height:1.05; letter-spacing:0; font-weight:700;
   color:#fffaf0; background:var(--hui); border-radius:3px;
-  padding:5px 3px; margin-left:.35em; transform:rotate(-4deg) translateY(-.15em);
+  padding:5px 3px; margin-left:.35em; transform:translateY(-.15em);
   box-shadow: inset 0 0 0 2px var(--hui), inset 0 0 0 3px rgba(255,250,240,.75);
   opacity:.9;
 }
