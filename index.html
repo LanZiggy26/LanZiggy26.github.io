@@ -71,7 +71,7 @@ footer{text-align:center;color:var(--dim);font-size:.82rem;margin-top:48px;font-
     var sec = el('section'); sec.appendChild(el('h2', null, g.group));
     var grid = el('div','grid');
     (g.items||[]).forEach(function(it){
-      var a = el('a','card'); a.href = it.url; a.target = '_blank'; a.rel = 'noopener';
+      var a = el('a','card'); a.href = it.url; if (/^https?:/.test(it.url)) { a.target = '_blank'; a.rel = 'noopener'; }
       var ic = el('div','icon');
       if (it.icon && /[./]/.test(it.icon)) {
         var img = new Image(); img.alt = ''; img.src = it.icon;

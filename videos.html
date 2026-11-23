@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>抱朴短视频</title>
+<meta name="description" content="跟杜保瑞老师读经典的旅美华人，用短视频讲老子、庄子、周易。">
+<link rel="icon" href="icons/dujing.png">
+<style>
+:root{
+  --bg:#f6f1e7; --paper:#fffdf8; --ink:#2b2622; --dim:#6f665c; --line:#e4dccd;
+  --accent:#a3342b; --tag:#efe7d8; --shadow:0 1px 2px rgba(60,40,20,.06),0 6px 20px rgba(60,40,20,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#1b1916; --paper:#25221e; --ink:#ece5d8; --dim:#a79e90; --line:#3a352e; --accent:#e07a6c; --tag:#332f29; --shadow:0 1px 2px rgba(0,0,0,.3); }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Songti SC","Noto Serif SC","Source Han Serif SC","SimSun",serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:28px 16px 40px}
+.back{display:inline-block;color:var(--dim);text-decoration:none;font-size:.95rem;margin-bottom:20px;font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif}
+.back:hover{color:var(--accent)}
+header{text-align:center;margin-bottom:32px}
+h1{font-size:2rem;letter-spacing:.25em;padding-left:.25em}
+.sub{color:var(--dim);font-size:.95rem;margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.player{background:#000;display:grid;place-items:center}
+video{width:100%;max-height:72vh;display:block;background:#000}
+.body{padding:14px 16px 16px;display:grid;gap:8px}
+h2{font-size:1.15rem;line-height:1.4}
+.desc{color:var(--dim);font-size:.92rem}
+.vers{display:flex;flex-wrap:wrap;gap:6px}
+.vers button{font:inherit;font-size:.82rem;font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif;border:1px solid var(--line);background:var(--tag);color:var(--ink);border-radius:999px;padding:2px 12px;cursor:pointer}
+.vers button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.vers button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{text-align:center;color:var(--dim);font-size:.82rem;margin-top:40px;font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">‹ 回抱朴书房</a>
+  <header>
+    <h1>抱朴短视频</h1>
+    <div class="sub">旅美华人跟杜保瑞老师读经典 · 每支一两分钟</div>
+  </header>
+  <main class="grid" id="list"></main>
+  <footer>全文见抱朴讲堂 baopujiangtang.com</footer>
+</div>
+<script>
+/* 以后加视频：把 mp4 传进 videos/ 文件夹，再照下面的样子加一段。 */
+var VIDEOS = [
+  {
+    title: "美国「领导力之父」，竟在书里引用《老子》？",
+    desc: "本尼斯在《领导者》里引用「功成事遂，百姓皆谓我自然」；格林利夫说「领导者首先是仆人」。一位旅美华人写下东西方领导力的对照。",
+    versions: [["真人配音", "videos/laozi-leadership.mp4"], ["蔡春影", "videos/laozi-leadership-cai.mp4"]]
+  },
+  {
+    title: "美国学校天天教孩子「做你自己」，这不就是庄子吗？",
+    desc: "从校长每周格言里的「做你自己」，到庄子「以鸟养养鸟」；从幼儿园的黄金原则，到孔子「己所不欲，勿施于人」。",
+    versions: [["真人配音", "videos/zhuangzi-education.mp4"], ["蔡春影", "videos/zhuangzi-education-cai.mp4"]]
+  },
+  {
+    title: "婚姻是一座围城，《周易》能帮你守好这座城吗？",
+    desc: "从未济、同人、睽、家人到艮卦，一位旅美华人读《周易》，整理出经营婚姻的古老智慧：二人同心，其利断金。",
+    versions: [["真人配音", "videos/zhouyi-couple.mp4"], ["罗兰", "videos/zhouyi-couple-luolan.mp4"]]
+  },
+  {
+    title: "如老牛低头食草，在虚怀中为己而学",
+    desc: "讲师班第二轮报告，工作已经够累，还要写、还要讲、还要被点评，图什么？谈放下身段、回到学生的心。",
+    versions: [["真人配音", "videos/laoniu.mp4"], ["讲师班助教随谈", "videos/laoniu-talk.mp4"]]
+  }
+];
+(function(){
+  var list = document.getElementById('list');
+  VIDEOS.forEach(function(v){
+    var card = document.createElement('article'); card.className = 'card';
+    var player = document.createElement('div'); player.className = 'player';
+    var vid = document.createElement('video');
+    vid.controls = true; vid.preload = 'metadata'; vid.setAttribute('playsinline', '');
+    vid.src = v.versions[0][1] + '#t=0.1';
+    player.appendChild(vid); card.appendChild(player);
+    var body = document.createElement('div'); body.className = 'body';
+    var h = document.createElement('h2'); h.textContent = v.title; body.appendChild(h);
+    if (v.versions.length > 1) {
+      var vers = document.createElement('div'); vers.className = 'vers';
+      v.versions.forEach(function(p, i){
+        var b = document.createElement('button'); b.type = 'button'; b.textContent = p[0];
+        b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+        b.onclick = function(){
+          vers.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true');
+          vid.src = p[1] + '#t=0.1'; vid.load();
+        };
+        vers.appendChild(b);
+      });
+      body.appendChild(vers);
+    }
+    var d = document.createElement('p'); d.className = 'desc'; d.textContent = v.desc; body.appendChild(d);
+    card.appendChild(body); list.appendChild(card);
+  });
+  /* 同时只播一支 */
+  document.addEventListener('play', function(e){
+    document.querySelectorAll('video').forEach(function(x){ if (x !== e.target) x.pause(); });
+  }, true);
+})();
+</script>
+</body>
+</html>
