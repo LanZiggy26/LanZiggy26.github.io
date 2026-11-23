@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学习书房</title>
+<meta name="description" content="读经典、学中医，一键点入。">
+<link rel="icon" href="icons/dujing.png">
+<style>
+:root{
+  --bg:#f6f1e7; --paper:#fffdf8; --ink:#2b2622; --dim:#6f665c; --line:#e4dccd;
+  --accent:#a3342b; --accent-soft:rgba(163,52,43,.08); --tag:#efe7d8; --shadow:0 1px 2px rgba(60,40,20,.06),0 6px 20px rgba(60,40,20,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#1b1916; --paper:#25221e; --ink:#ece5d8; --dim:#a79e90; --line:#3a352e;
+    --accent:#e07a6c; --accent-soft:rgba(224,122,108,.12); --tag:#332f29; --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink); min-height:100vh;
+  font-family:"Songti SC","Noto Serif SC","Source Han Serif SC","SimSun",serif;
+  line-height:1.7; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px;margin:0 auto;padding:56px 16px 40px}
+header{text-align:center;margin-bottom:44px}
+h1{font-size:2.2rem;letter-spacing:.3em;font-weight:700;padding-left:.3em}
+.seal{display:inline-block;margin-top:10px;color:var(--dim);font-size:.95rem;letter-spacing:.15em}
+.seal::before,.seal::after{content:"";display:inline-block;width:32px;height:1px;background:var(--line);vertical-align:middle;margin:0 12px}
+section{margin-bottom:36px}
+h2{font-size:1rem;color:var(--accent);letter-spacing:.4em;margin:0 0 14px 4px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+a.card{
+  display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:14px;
+  background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);
+  color:inherit;text-decoration:none;transition:transform .15s ease,border-color .15s ease;
+}
+a.card:hover,a.card:focus-visible{transform:translateY(-2px);border-color:var(--accent);outline:none}
+.icon{
+  flex:none;width:56px;height:56px;border-radius:12px;overflow:hidden;
+  display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);
+  font-size:1.6rem;font-weight:700;
+}
+.icon img{width:100%;height:100%;object-fit:cover}
+.body{min-width:0}
+.title{font-size:1.15rem;font-weight:700;display:flex;align-items:center;gap:8px}
+.new{font-size:.7rem;color:#fff;background:var(--accent);border-radius:4px;padding:0 6px;line-height:1.6;font-family:system-ui,sans-serif}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px}
+.tags span{font-size:.75rem;color:var(--dim);background:var(--tag);border-radius:999px;padding:1px 9px;font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif}
+.desc{font-size:.92rem;color:var(--dim)}
+footer{text-align:center;color:var(--dim);font-size:.82rem;margin-top:48px;font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif}
+@media (max-width:480px){h1{font-size:1.8rem}.wrap{padding-top:40px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>学习书房</h1>
+    <div class="seal">读经典 · 学中医 · 一键点入</div>
+  </header>
+  <main id="shelf"></main>
+  <footer>手机上想像 App 一样打开：iPhone 用 Safari「分享 → 添加到主屏幕」，安卓用 Chrome「添加到主屏幕」。</footer>
+</div>
+<script src="items.js"></script>
+<script>
+(function(){
+  var root = document.getElementById('shelf');
+  function el(tag, cls, text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+  (window.SHELF||[]).forEach(function(g){
+    var sec = el('section'); sec.appendChild(el('h2', null, g.group));
+    var grid = el('div','grid');
+    (g.items||[]).forEach(function(it){
+      var a = el('a','card'); a.href = it.url; a.target = '_blank'; a.rel = 'noopener';
+      var ic = el('div','icon');
+      if (it.icon && /[./]/.test(it.icon)) {
+        var img = new Image(); img.alt = ''; img.src = it.icon;
+        img.onerror = function(){ ic.textContent = (it.title||'·').charAt(0); };
+        ic.appendChild(img);
+      } else { ic.textContent = it.icon || (it.title||'·').charAt(0); }
+      a.appendChild(ic);
+      var b = el('div','body');
+      var t = el('div','title', it.title);
+      if (it.isNew) t.appendChild(el('span','new','新'));
+      b.appendChild(t);
+      if (it.tags && it.tags.length){ var tg=el('div','tags'); it.tags.forEach(function(x){ tg.appendChild(el('span',null,x)); }); b.appendChild(tg); }
+      if (it.desc) b.appendChild(el('div','desc', it.desc));
+      a.appendChild(b); grid.appendChild(a);
+    });
+    sec.appendChild(grid); root.appendChild(sec);
+  });
+})();
+</script>
+</body>
+</html>
