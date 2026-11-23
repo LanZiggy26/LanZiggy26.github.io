@@ -45,6 +45,14 @@ window.SHELF = [
         isNew: true
       },
       {
+        title: "颐趣 · 养生游园",
+        url: "https://claude.ai/artifact/ALCiE6Kh4abwGZZGDG5P7V",
+        icon: "颐",
+        tags: ["节气时辰", "养生游戏", "体质小测"],
+        desc: "今日节气与十二时辰、每日功课，学堂讲倪海厦与徐文兵；游园有真假养生、药膳厨房、舌象诊所等十几个小游戏。",
+        isNew: true
+      },
+      {
         title: "倪海厦经方中医",
         url: "https://lanziggy26.github.io/nihaixia/",
         icon: "https://lanziggy26.github.io/nihaixia/logo.jpg",
