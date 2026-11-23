@@ -29,6 +29,14 @@ window.SHELF = [
     group: "中医",
     items: [
       {
+        title: "经方学堂",
+        url: "https://claude.ai/artifact/Um3AbETwHS39qd7NqK9L1h",
+        icon: "经",
+        tags: ["每日一学", "医学原典", "经络舌脉"],
+        desc: "六经辨证、方剂与医案查询，经络走向、舌诊脉诊、针灸查穴、四季养生，还有小游戏练习。",
+        isNew: true
+      },
+      {
         title: "倪海厦经方中医",
         url: "https://lanziggy26.github.io/nihaixia/",
         icon: "https://lanziggy26.github.io/nihaixia/logo.jpg",
