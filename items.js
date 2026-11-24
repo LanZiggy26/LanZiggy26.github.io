@@ -41,7 +41,7 @@ window.SHELF = [
       },
       {
         title: "菜根谭职场修行记",
-        url: "caigentan/",
+        url: "http://baopujiangtang.com/caigentan/",
         icon: "菜",
         tags: ["菜根谭", "职场新人", "互动游戏", "中英双语"],
         desc: "依杜保瑞老师《菜根谭的乾坤人生》八单元编排：从试用期到带团队，40 个职场情境三选一，盖印评上中下策，收集 48 张原文锦囊。",
