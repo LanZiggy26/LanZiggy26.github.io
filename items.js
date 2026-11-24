@@ -24,6 +24,14 @@ window.SHELF = [
         isNew: true
       },
       {
+        title: "一起读经 · 版本记录",
+        url: "https://github.com/LanZiggy26/yiqi-dujing#二版本记录app",
+        icon: "版",
+        tags: ["私密", "仅本人可看", "每日同步"],
+        desc: "App 目前状况、各经典音频覆盖与历次版本。放在 GitHub 私密仓库，须登录本人账号才能打开。",
+        isNew: true
+      },
+      {
         title: "抱朴短视频",
         url: "videos.html",
         icon: "影",
